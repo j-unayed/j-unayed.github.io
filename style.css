@@ -16,6 +16,7 @@ nav {
 nav ul {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -63,4 +64,42 @@ section {
 
 ul li {
   margin: 10px 0;
+}
+
+/* Collapsible Styles */
+.collapsible {
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+.collapsible:hover {
+  background-color: #666;
+}
+
+.content {
+  padding: 0 15px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+  nav ul {
+    flex-direction: column;
+  }
 }
