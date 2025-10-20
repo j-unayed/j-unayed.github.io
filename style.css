@@ -7,8 +7,8 @@ body {
 nav {
   background: #222;
   color: white;
-  position: fixed;
   width: 100%;
+  position: fixed;
   top: 0;
   z-index: 100;
 }
@@ -16,7 +16,6 @@ nav {
 nav ul {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -25,81 +24,114 @@ nav ul {
 nav a {
   color: white;
   text-decoration: none;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: block;
 }
 
 nav a:hover {
-  background: #444;
-}
-
-section {
-  padding: 100px 20px 50px 20px;
-  max-width: 900px;
-  margin: auto;
+  background-color: #444;
 }
 
 .banner {
-  text-align: center;
-  background: #eee;
-  padding: 50px 20px;
+  width: 100%;
+  height: 200px;
+  background: url('https://via.placeholder.com/1200x200?text=Banner') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  margin-top: 50px; /* nav height */
 }
 
-.banner a {
-  color: #333;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+  gap: 20px;
+}
+
+.left {
+  flex: 1;
+  min-width: 300px;
+}
+
+.right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.headshot {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.contact a {
+  color: #222;
   text-decoration: underline;
 }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 10px;
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
 }
 
-.gallery img {
+.slide {
+  display: none;
+  position: relative;
+}
+
+.slide img {
   width: 100%;
   border-radius: 8px;
 }
 
-ul li {
-  margin: 10px 0;
+.caption {
+  text-align: center;
+  padding: 8px 0;
 }
 
-/* Collapsible Styles */
-.collapsible {
-  background-color: #444;
-  color: white;
+.prev, .next {
   cursor: pointer;
-  padding: 10px 15px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 16px;
-  margin: 5px 0;
-  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 8px;
+  margin-top: -20px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.4);
 }
 
-.collapsible:hover {
-  background-color: #666;
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.content {
-  padding: 0 15px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Fade animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
 
 /* Responsive */
-@media (max-width: 600px) {
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-  nav ul {
+@media (max-width: 800px) {
+  .container {
     flex-direction: column;
   }
 }
