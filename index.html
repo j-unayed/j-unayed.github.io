@@ -3,108 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Md. Junayed | Portfolio</title>
+  <title>Md. Junayed | Home</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+  <!-- Navigation -->
   <nav>
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#projects">Personal Projects</a></li>
-      <li><a href="#people">People</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="projects.html">Personal Projects</a></li>
+      <li><a href="people.html">People</a></li>
     </ul>
   </nav>
 
-  <section id="home">
-    <div class="banner">
-      <h1>Md. Junayed</h1>
-      <p>R1902049@che.buet.ac.bd | <a href="https://linkedin.com/in/junayed733" target="_blank">LinkedIn</a> | <a href="https://github.com/j-unayed" target="_blank">GitHub</a></p>
-    </div>
+  <!-- Banner -->
+  <header class="banner">
+    <h1>Md. Junayed</h1>
+  </header>
 
-    <div class="about">
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Left Column -->
+    <div class="left">
+      <img src="images/headshot.jpg" alt="Md. Junayed Headshot" class="headshot">
       <h2>About Me</h2>
-      <p>Research Interests:</p>
-      <ul>
-        <li>Biomaterials and Surface Engineering</li>
-        <li>Enzyme and Protein Studies</li>
-        <li>Environmental and Industrial Microbiology</li>
-        <li>Biocatalysis and Heterogeneous Catalysis</li>
-        <li>Tissue Engineering</li>
-        <li>Biosensor Development and Analytical Devices</li>
-        <li>Microfluidics and Millifluidics</li>
-        <li>Biochar and Biomass Applications</li>
-      </ul>
-      <div class="gallery">
-        <img src="images/img1.jpg" alt="Image 1">
-        <img src="images/img2.jpg" alt="Image 2">
-        <img src="images/img3.jpg" alt="Image 3">
-        <img src="images/img4.jpg" alt="Image 4">
+      <p>
+        I am a Chemical Engineering graduate from BUET with research interests in biomaterials, enzymes, biocatalysis, and environmental microbiology. I have experience in process design, enzyme extraction, and Python/Java application development.
+      </p>
+      <div class="contact">
+        <p>Email: R1902049@che.buet.ac.bd</p>
+        <p><a href="https://linkedin.com/in/junayed733" target="_blank">LinkedIn</a> | <a href="https://github.com/j-unayed" target="_blank">GitHub</a></p>
       </div>
     </div>
-  </section>
 
-  <section id="research">
-    <h2>Research</h2>
+    <!-- Right Column / Slideshow -->
+    <div class="right">
+      <div class="slideshow-container">
 
-    <button class="collapsible">Undergraduate Thesis</button>
-    <div class="content">
-      <p><b>Title:</b> Strategic approach for extraction and purification of peroxidase enzyme from horseradish roots, structural and functional characterization, with application in enzymatic phenol degradation and antimicrobial activity</p>
-      <p><b>Supervised by:</b> Dr. Mahbuba Jannat | Partner: Swarnila Chakma | Mentor: Pritam Hasan</p>
-      <p><b>Timeline:</b> Jan 2024 – Mar 2025</p>
-      <p><b>Details:</b> Extraction & purification of HRP, structural confirmation with FTIR/SEM. UV-Vis assays: pH 7.8, 37°C. Phenol degradation improved 5.6% → 20.1%. Moderate antimicrobial activity against E. coli.</p>
+        <div class="slide fade">
+          <a href="#"><img src="https://via.placeholder.com/400x300?text=Image+1" alt="Slide 1"></a>
+          <div class="caption">Image Title 1</div>
+        </div>
+
+        <div class="slide fade">
+          <a href="#"><img src="https://via.placeholder.com/400x300?text=Image+2" alt="Slide 2"></a>
+          <div class="caption">Image Title 2</div>
+        </div>
+
+        <div class="slide fade">
+          <a href="#"><img src="https://via.placeholder.com/400x300?text=Image+3" alt="Slide 3"></a>
+          <div class="caption">Image Title 3</div>
+        </div>
+
+        <div class="slide fade">
+          <a href="#"><img src="https://via.placeholder.com/400x300?text=Image+4" alt="Slide 4"></a>
+          <div class="caption">Image Title 4</div>
+        </div>
+
+        <!-- Next/Prev buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+      </div>
     </div>
-
-    <button class="collapsible">Process Design Project</button>
-    <div class="content">
-      <p><b>Title:</b> Design of a 120 MTPD Aniline Production Plant</p>
-      <p><b>Timeline:</b> Jan 2024 – Mar 2025</p>
-      <p><b>Details:</b> PFD, mass & energy balances, equipment sizing, HAZOP, economic analysis. Software: Aspen HYSYS, MATLAB, AutoCAD, Microsoft Visio.</p>
-    </div>
-
-    <button class="collapsible">Other Academic Projects</button>
-    <div class="content">
-      <ul>
-        <li><b>Natural Gas Sweetening Simulation:</b> July–Sept 2023, Aspen HYSYS process optimization, DEA 35% optimal.</li>
-        <li><b>Resource Recovery from E-Waste:</b> Dec 2022–Feb 2023, Cu/Ag/Au recovery (~60%, 50%, 79%), hydrometallurgical approach.</li>
-      </ul>
-    </div>
-
-    <button class="collapsible">Publications (Under Review)</button>
-    <div class="content">
-      <p><b>Evaluating substrates for enzyme-immobilized bioreactors</b> (Langmuir, ACS, Submitted Aug 2025)</p>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Personal Projects</h2>
-
-    <button class="collapsible">Appendix B App (Android)</button>
-    <div class="content">
-      <p>Java/XML, Android Studio. Provides chemical property tables & calculators.</p>
-    </div>
-
-    <button class="collapsible">Automatic Enzyme Activity Tool</button>
-    <div class="content">
-      <p>Python, PyCharm. Converts spectrophotometer videos to time-series plots of enzyme activity.</p>
-    </div>
-
-    <button class="collapsible">FTPaddict Desktop App</button>
-    <div class="content">
-      <p>Python, PyCharm. Stream/download FTP videos with playlist & batch support.</p>
-    </div>
-  </section>
-
-  <section id="people">
-    <h2>People</h2>
-    <ul>
-      <li><b>Thesis Supervisor:</b> Dr. Mahbuba Jannat</li>
-      <li><b>Design Supervisor:</b> Dr. Ifthekar Ahmed Khan</li>
-      <li><b>Thesis Partner:</b> Swarnila Chakma</li>
-      <li><b>Mentor:</b> Pritam Hasan</li>
-    </ul>
-  </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
