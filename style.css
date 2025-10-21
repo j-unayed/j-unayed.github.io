@@ -37,12 +37,14 @@ nav a:hover {
 
 /* Headshot (Home Page Only) */
 .headshot {
-  width: 150px;      /* fixed small size */
+  width: 150px;
   height: 150px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 15px;
-  display: block;
+  display: inline-block;  /* prevent flex stretch */
+  flex-shrink: 0;
+  align-self: flex-start;
 }
 
 /* Banner */
