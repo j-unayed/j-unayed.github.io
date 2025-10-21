@@ -59,6 +59,12 @@ nav a:hover {
   font-weight: 700;
   text-shadow: 1px 1px 3px black;
 }
+.banner h1 {
+  text-align: center;
+  width: 100%;
+  margin: 0;
+}
+
 
 /* Layout */
 .container {
