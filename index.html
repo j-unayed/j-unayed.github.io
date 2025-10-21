@@ -13,7 +13,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  
+  <div id="navbar"></div>
 
   <!-- Banner -->
   <header class="banner">
@@ -68,5 +68,12 @@
   </main>
 
   <script src="script.js"></script>
+  <script>
+fetch('navbar.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('navbar').innerHTML = data;
+  });
+</script>
 </body>
 </html>
