@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md. Junayed | Work Experience</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+</head>
+<body>
+  <!-- Navbar container -->
+  <div id="navbar"></div>
+
+  <!-- Banner -->
+  <header class="banner">
+    <h1>Work Experience</h1>
+  </header>
+
+  <main class="container">
+    <div class="left">
+      <h2>Management Trainee Officer (Process & Operation)</h2>
+      <p><strong>Organization:</strong> Bashundhara Chemical Industries Ltd.</p>
+      <p><strong>Timeline:</strong> May 2025 – Present</p>
+      <p><strong>Location:</strong> Zone 15, Mirsarai Economic Zone, Chittagong, Bangladesh</p>
+      <p>
+        Currently involved in the construction of the wastewater bio-treatment plant, implementing traditional anaerobic, anoxic, and oxic processes. Previously involved in commissioning of other sections, including Ag-catalyst and Fe/Mo-catalyst-based formaldehyde units, UFC-85, UF/MF resin, and SNF plants, supporting operations through troubleshooting, DCS monitoring, quality control, and training field operators in process understanding, P&ID interpretation, safety, and material handling (MSDS/TDS).
+      </p>
+
+      <h3>Primary Commissioning Experience</h3>
+      <p>
+        Successfully commissioned a 100 TPD Urea/Melamine-Formaldehyde Resin plant with two resin reactors and multiple waste gas treating units. Produced 60 tons of UF Resin from 38 tons Formaldehyde (37%) and 22 tons Urea (granular). Sodium Hydroxide (32%) and Formic Acid (85%) were used to control pH at different stages. Performed drip test, viscosity test, and solid content test during and after production.
+      </p>
+
+      <h3>Also Involved In</h3>
+      <ul>
+        <li>300 TPD Ag-catalyst-based Formaldehyde Plant</li>
+        <li>200 TPD Fe–Mo-catalyst-based Formaldehyde/UFC-85 Plant</li>
+        <li>100 TPD SNF (Sulfonated Naphthalene Formaldehyde) Plant</li>
+        <li>100 TPD UF/MF (Urea/Melamine Formaldehyde) Resin Plant</li>
+      </ul>
+      <p>
+        Responsibilities included on-site and DCS commissioning, inspection of field work, identifying equipment design faults, leak testing, control valve calibration, and preparing log sheets for DCS and on-site data.
+      </p>
+
+      <h3>Operator Training</h3>
+      <p>
+        Directly trained operators on chemical processes, P&ID interpretation, safety procedures, and material handling (MSDS/TDS) for each plant.
+      </p>
+    </div>
+
+    <div class="right">
+      <div class="slideshow-container">
+        <div class="slide"><img src="images/work1.jpg" alt="Work 1"><div class="caption">Worksite</div></div>
+        <div class="slide"><img src="images/work2.jpg" alt="Work 2"><div class="caption">Commissioning</div></div>
+        <div class="slide"><img src="images/work3.jpg" alt="Work 3"><div class="caption">DCS Monitoring</div></div>
+        <div class="slide"><img src="images/work4.jpg" alt="Work 4"><div class="caption">Team Training</div></div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // load shared navbar
+    fetch('navbar.html').then(r => r.text()).then(d => document.getElementById('navbar').innerHTML = d);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
