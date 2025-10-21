@@ -35,6 +35,16 @@ nav a:hover {
   background-color: #333;
 }
 
+/* Headshot (Home Page Only) */
+.headshot {
+  width: 150px;      /* fixed small size */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: block;
+}
+
 /* Banner */
 .banner {
   background: url('https://via.placeholder.com/1500x200?text=Banner') center/cover no-repeat;
