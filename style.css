@@ -1,137 +1,157 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #222;
 }
 
+/* Navigation Bar */
 nav {
-  background: #222;
-  color: white;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 100;
+  background-color: #111;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 nav ul {
   display: flex;
-  justify-content: center;
-  list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+nav li {
+  flex: 0 0 auto;
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  padding: 1rem 2rem;
   display: block;
+  padding: 14px 20px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 nav a:hover {
-  background-color: #444;
+  background-color: #333;
 }
 
+/* Banner */
 .banner {
-  width: 100%;
-  height: 200px;
-  background: url('https://via.placeholder.com/1200x200?text=Banner') no-repeat center center;
-  background-size: cover;
+  background: url('https://via.placeholder.com/1500x200?text=Banner') center/cover no-repeat;
+  height: 180px; /* thinner banner */
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 2rem;
-  margin-top: 50px; /* nav height */
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px black;
 }
 
+/* Layout */
 .container {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px 60px;
+  gap: 40px;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 20px auto;
-  gap: 20px;
 }
 
+/* Left section */
 .left {
-  flex: 1;
+  flex: 1 1 50%;
   min-width: 300px;
+  line-height: 1.6;
 }
 
+.left h2 {
+  border-left: 4px solid #222;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+/* Right section (slideshow box) */
 .right {
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 40%;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
 }
 
-.headshot {
-  width: 150px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-
-.contact a {
-  color: #222;
-  text-decoration: underline;
-}
-
+/* Slideshow Container */
 .slideshow-container {
   position: relative;
-  max-width: 100%;
+  width: 100%;
+  max-width: 360px; /* 25% smaller than before */
+  height: 270px; /* fixed height prevents resizing */
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #eaeaea;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Each slide */
 .slide {
   display: none;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .slide img {
   width: 100%;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
 }
 
+/* Caption */
 .caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
   text-align: center;
-  padding: 8px 0;
+  font-size: 0.9rem;
+  padding: 4px;
 }
 
+/* Prev/Next buttons */
 .prev, .next {
-  cursor: pointer;
   position: absolute;
   top: 50%;
-  width: auto;
-  padding: 8px;
-  margin-top: -20px;
+  transform: translateY(-50%);
+  font-size: 20px;
   color: white;
-  font-weight: bold;
-  font-size: 24px;
-  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
   user-select: none;
-  background-color: rgba(0,0,0,0.4);
 }
 
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+.next { right: 5px; }
+.prev { left: 5px; }
 
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Fade animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1s;
-}
-
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-
-/* Responsive */
-@media (max-width: 800px) {
+/* Responsive Layout */
+@media (max-width: 768px) {
   .container {
     flex-direction: column;
+    padding: 20px;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .slideshow-container {
+    max-width: 300px;
+    height: 225px;
+    margin: auto;
   }
 }
