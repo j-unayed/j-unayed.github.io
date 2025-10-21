@@ -38,7 +38,7 @@ nav a:hover {
 /* Banner */
 .banner {
   background: url('https://via.placeholder.com/1500x200?text=Banner') center/cover no-repeat;
-  height: 180px; /* thinner banner */
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
