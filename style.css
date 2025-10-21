@@ -53,11 +53,12 @@ nav a:hover {
   height: 180px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  /* this ensures perfect centering */
   color: white;
   font-size: 1.8rem;
   font-weight: 700;
   text-shadow: 1px 1px 3px black;
+  text-align: center; /* fallback alignment */
 }
 .banner h1 {
   text-align: center;
