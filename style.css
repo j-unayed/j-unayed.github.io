@@ -174,3 +174,10 @@ nav a:hover {
     margin: auto;
   }
 }
+.nav-logo {
+  width: 32px;      /* size of favicon in navbar */
+  height: 32px;
+  margin: 6px 10px 0 10px;
+  vertical-align: middle;
+  border-radius: 4px; /* optional rounded corners */
+}
