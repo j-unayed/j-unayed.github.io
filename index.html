@@ -33,7 +33,7 @@
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
       object-fit: cover;
-      filter: blur(6px);
+      filter: blur(3px);
       transition: opacity 0.6s ease;
     }
     .hero-content {
@@ -172,33 +172,68 @@
   </section>
 
   <!-- Slideshow script (kept for hero background) -->
-  <script src="script.js"></script>
-  <script>
-    // Load navbar
-    fetch('navbar.html')
-      .then(r => r.text())
-      .then(d => document.getElementById('navbar').innerHTML = d);
+<script src="script.js"></script>
+<script>
+  // Load navbar
+  fetch('navbar.html')
+    .then(r => r.text())
+    .then(d => document.getElementById('navbar').innerHTML = d);
 
-    // ---- HERO BACKGROUND SLIDESHOW ----
-    const bgImages = [
-      'images/slide1.jpg',
-      'images/slide2.jpg',
-      'images/slide3.jpg',
-      'images/slide4.jpg'
-    ];
-    let bgIndex = 0;
-    const heroBg = document.getElementById('heroBg');
+  // ---- DYNAMIC HERO BACKGROUND SHUFFLE ----
+  const heroBg = document.getElementById('heroBg');
+  const folder = 'images_homepage/';
+  let images = [];
+  let currentIndex = 0;
 
-    function changeHeroBg() {
-      heroBg.style.opacity = '0';
-      setTimeout(() => {
-        heroBg.src = bgImages[bgIndex];
-        heroBg.style.opacity = '1';
-        bgIndex = (bgIndex + 1) % bgImages.length;
-      }, 600);
+  // List your image filenames here (or use a server-side list later)
+  // You can add/remove any image — just update this array
+  const imageFilenames = [
+    '1707629221052.jpg',
+    '1707935627250.jpg',
+    'IMG-20250614-WA0009.jpg',
+    'IMG-20250621-WA0000.jpg',
+    'IMG-20250723-WA0044.jpeg',
+    'IMG-20250825-WA0014.jpg',
+    'IMG_20241123_133147.jpg',
+    'IMG_20250721_153556.jpg',
+    'IMG_20250721_154213.jpg',
+    'IMG_20250822_123740.jpg'
+  ];
+
+  // Preload images and shuffle
+  function preloadAndShuffle() {
+    images = imageFilenames.map(filename => {
+      const img = new Image();
+      img.src = folder + filename;
+      return img;
+    });
+
+    // Shuffle array
+    for (let i = images.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [images[i], images[j]] = [images[j], images[i]];
     }
-    setInterval(changeHeroBg, 4000);   // change every 4 s
-    changeHeroBg();                    // initial load
-  </script>
+
+    // Start with first image
+    heroBg.src = images[0].src;
+    currentIndex = 1;
+  }
+
+  // Change background with fade
+  function changeHeroBg() {
+    heroBg.style.opacity = '0';
+    setTimeout(() => {
+      heroBg.src = images[currentIndex].src;
+      heroBg.style.opacity = '1';
+      currentIndex = (currentIndex + 1) % images.length;
+    }, 600);
+  }
+
+  // Initialize
+  window.addEventListener('load', () => {
+    preloadAndShuffle();
+    setInterval(changeHeroBg, 4000); // Change every 4 seconds
+  });
+</script>
 </body>
 </html>
