@@ -7,73 +7,197 @@
   <link rel="stylesheet" href="style.css">
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-
-  <!-- Apple Touch Icon for iOS bookmarks -->
   <link rel="apple-touch-icon" href="images/favicon.png">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ---- NEW HERO SECTION ---- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 1;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      filter: blur(6px);
+      transition: opacity 0.6s ease;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+    .hero .headshot {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      margin: 1.5rem auto;
+      display: block;
+      object-fit: cover;
+    }
+    .hero .contact-links {
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+    }
+    .hero .contact-links a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .hero .social-links a {
+      margin: 0 12px;
+      font-size: 1.6rem;
+      color: #fff;
+      transition: transform .2s;
+    }
+    .hero .social-links a:hover { transform: scale(1.2); }
+
+    /* ---- STACK CARDS ---- */
+    .stack-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 4rem 2rem;
+      background: #fafafa;
+    }
+    .card {
+      background: #fff;
+      width: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .3s, box-shadow .3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.15);
+    }
+    .card img.logo {
+      width: 70px;
+      height: 70px;
+      margin: 1.2rem auto;
+      object-fit: contain;
+    }
+    .card h3 { margin: 0.5rem 0; font-size: 1.1rem; }
+    .card p { margin: 0.4rem 0; color: #555; font-size: .95rem; }
+    .card a { color: #0066cc; text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .hero { height: 80vh; }
+      .hero .headshot { width: 140px; height: 140px; }
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
   <div id="navbar"></div>
 
-  <!-- Banner -->
-  <header class="banner">
-    <h1>Md. Junayed</h1>
-  </header>
-
-  <!-- Main Content -->
-  <main class="container">
-    <!-- Left Column -->
-    <div class="left">
+  <!-- ==== HERO SECTION ==== -->
+  <section class="hero">
+    <img src="images/slide1.jpg" alt="" class="hero-bg" id="heroBg">
+    <div class="hero-content">
+      <h1>Hello! I am Md. Junayed</h1>
       <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot">
-      <h2>About Me</h2>
-      <p>
-        I am a Chemical Engineering graduate from BUET with research interests in biomaterials, enzymes, biocatalysis, and environmental microbiology. I have experience in process design, enzyme extraction, and Python/Java application development.
-      </p>
-      <div class="contact">
-        <p>Email: 1902049@che.buet.ac.bd</p>
-        <p><a href="https://linkedin.com/in/junayed733" target="_blank">LinkedIn</a> | <a href="https://github.com/j-unayed" target="_blank">GitHub</a></p>
+
+      <div class="contact-links">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:1902049@che.buet.ac.bd">1902049@che.buet.ac.bd</a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://linkedin.com/in/junayed733" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/j-unayed" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://fb.com/junayed733" target="_blank" title="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
       </div>
     </div>
+  </section>
 
-    <!-- Right Column / Slideshow -->
-    <div class="right">
-      <div class="slideshow-container">
-
-        <div class="slide fade">
-          <a href="#"><img src="images/slide1.jpg" alt="Slide 1"></a>
-          <div class="caption">slide</div>
-        </div>
-
-        <div class="slide fade">
-          <a href="#"><img src="images/slide2.jpg" alt="Slide 2"></a>
-          <div class="caption">Image Title 2</div>
-        </div>
-
-        <div class="slide fade">
-          <a href="#"><img src="images/slide3.jpg" alt="Slide 3"></a>
-          <div class="caption">Image Title 3</div>
-        </div>
-
-        <div class="slide fade">
-          <a href="#"><img src="images/slide4.jpg" alt="Slide 4"></a>
-          <div class="caption">Image Title 4</div>
-        </div>
-
-        <!-- Next/Prev buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-      </div>
+  <!-- ==== STACK CARDS ==== -->
+  <section class="stack-cards">
+    <!-- BUET -->
+    <div class="card">
+      <img src="images/buet.png" alt="BUET logo" class="logo">
+      <h3>B.Sc in Chemical Engineering</h3>
+      <p>2025</p>
+      <p><a href="https://www.buet.ac.bd" target="_blank">Bangladesh University of Engineering and Technology</a></p>
     </div>
-  </main>
 
+    <!-- Research -->
+    <div class="card">
+      <img src="images/research.png" alt="Research logo" class="logo">
+      <h3>Experienced Researcher</h3>
+      <p>Biomaterials, Catalysis</p>
+      <p>1 Q1 Paper, 1 Project</p>
+    </div>
+
+    <!-- Coding -->
+    <div class="card">
+      <img src="images/coding.png" alt="Coding logo" class="logo">
+      <h3>Python, Java</h3>
+      <p>3 Projects</p>
+    </div>
+
+    <!-- BCIL -->
+    <div class="card">
+      <img src="images/bcil.png" alt="BCIL logo" class="logo">
+      <h3>Process Engineer</h3>
+      <p>Bashundhara Chemical Industries Limited</p>
+      <p><a href="https://www.bashundharagroup.com" target="_blank">bashundharagroup.com</a></p>
+    </div>
+  </section>
+
+  <!-- Slideshow script (kept for hero background) -->
   <script src="script.js"></script>
   <script>
-fetch('navbar.html')
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById('navbar').innerHTML = data;
-  });
-</script>
+    // Load navbar
+    fetch('navbar.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('navbar').innerHTML = d);
+
+    // ---- HERO BACKGROUND SLIDESHOW ----
+    const bgImages = [
+      'images/slide1.jpg',
+      'images/slide2.jpg',
+      'images/slide3.jpg',
+      'images/slide4.jpg'
+    ];
+    let bgIndex = 0;
+    const heroBg = document.getElementById('heroBg');
+
+    function changeHeroBg() {
+      heroBg.style.opacity = '0';
+      setTimeout(() => {
+        heroBg.src = bgImages[bgIndex];
+        heroBg.style.opacity = '1';
+        bgIndex = (bgIndex + 1) % bgImages.length;
+      }, 600);
+    }
+    setInterval(changeHeroBg, 4000);   // change every 4 s
+    changeHeroBg();                    // initial load
+  </script>
 </body>
 </html>
