@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Md. Junayed | Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="images/favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/favicon.png">
 </head>
 <body>
-  <div id="navbar"></div>
+  <!-- Blurred background slideshow -->
+  <div id="background-slideshow">
+    <img src="images/slide1.jpg" class="bg-slide">
+    <img src="images/slide2.jpg" class="bg-slide">
+    <img src="images/slide3.jpg" class="bg-slide">
+    <img src="images/slide4.jpg" class="bg-slide">
+  </div>
 
-  <!-- ==== HERO SECTION ==== -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Hello! I am Md. Junayed</h1>
-      <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot" />
-      <div class="contact-links">
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:1902049@che.buet.ac.bd">1902049@che.buet.ac.bd</a>
+  <!-- Navigation wrapper -->
+  <div id="navWrapper">
+    <nav>
+      <ul>
+        <li class="quick-links-btn" onclick="toggleQuickLinks()">☰</li>
+        <li><a href="index.html"><img src="images/favicon.ico" alt="Home" class="nav-logo"></a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="projects.html">Personal Projects</a></li>
+        <li><a href="work.html">Work Experience</a></li>
+        <li><a href="people.html">People</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Quick Links Drawer -->
+  <div id="quickLinksDrawer">
+    <h3>Quick Links</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/1ZOzidJSAitUExNqI4dUI3jVCIBhWyXoo/view?usp=sharing" target="_blank">Academic CV</a></li>
+      <li><a href="https://drive.google.com/file/d/170eYWhg11XNwQIA3TA_F1hUEtZl9J3cW/view?usp=sharing" target="_blank">UG Thesis</a></li>
+      <li><a href="https://drive.google.com/file/d/1zfRyfrl7S5Yi6s3eoSS23C1CmCclI0On/view?usp=sharing" target="_blank">UG Process Design</a></li>
+      <li><a href="https://drive.google.com/file/d/1NhJ2Ud-n6mqFH40mn9oWkfh47tJpKI61/view?usp=sharing" target="_blank">Research: Immobilized Bioreactors</a></li>
+      <li><a href="https://drive.google.com/drive/folders/1pfhytNjCPeC4Kw9qnaOKsM9HwosbPchs?usp=drive_link" target="_blank">Industrial Experience – BCIL</a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="https://wa.me/8801838723352" target="_blank">📞 Contact: +8801838723352</a>
+      <p>© 2025 Md. Junayed</p>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <header class="banner">
+    <h1>Md. Junayed</h1>
+  </header>
+
+  <!-- Content layout -->
+  <main class="container">
+    <div class="content-layout">
+      <!-- Left cards -->
+      <div class="card-grid left-cards">
+        <div class="card">Research Interests</div>
+        <div class="card">Publications</div>
       </div>
 
-      <div class="social-links">
-        <a href="https://linkedin.com/in/junayed733" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/j-unayed" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://fb.com/junayed733" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <!-- Center slideshow -->
+      <div class="slideshow-container small">
+        <div class="slide fade"><img src="images/slide1.jpg" alt="Slide 1"></div>
+        <div class="slide fade"><img src="images/slide2.jpg" alt="Slide 2"></div>
+        <div class="slide fade"><img src="images/slide3.jpg" alt="Slide 3"></div>
+        <div class="slide fade"><img src="images/slide4.jpg" alt="Slide 4"></div>
+      </div>
+
+      <!-- Right cards -->
+      <div class="card-grid right-cards">
+        <div class="card">Thesis Project</div>
+        <div class="card">Design Project</div>
       </div>
     </div>
 
-    <!-- Manual slideshow below profile -->
-    <div class="hero-slideshow">
-      <div class="slide active"><img src="images_homepage/IMG_20250721_153556.jpg" alt="Slide 1" /></div>
-      <div class="slide"><img src="images_homepage/IMG_20250721_154213.jpg" alt="Slide 2" /></div>
-      <div class="slide"><img src="images_homepage/IMG_20250822_123740.jpg" alt="Slide 3" /></div>
-      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    <!-- Contact -->
+    <div class="contact">
+      <p>Email: 1902049@che.buet.ac.bd</p>
+      <p><a href="https://linkedin.com/in/junayed733" target="_blank">LinkedIn</a> | <a href="https://github.com/j-unayed" target="_blank">GitHub</a></p>
     </div>
-  </section>
-
-  <!-- ==== STACK CARDS ==== -->
-  <section class="stack-cards">
-    <div class="card">
-      <img src="images/buet.png" alt="BUET" class="logo" />
-      <h3>B.Sc in Chemical Engineering</h3>
-      <p>2025</p>
-      <p><a href="https://www.buet.ac.bd" target="_blank">BUET</a></p>
-    </div>
-
-    <div class="card">
-      <img src="images/research.png" alt="Research" class="logo" />
-      <h3>Experienced Researcher</h3>
-      <p>Biomaterials, Catalysis</p>
-      <p>1 Q1 Paper, 1 Project</p>
-    </div>
-
-    <div class="card">
-      <img src="images/coding.png" alt="Coding" class="logo" />
-      <h3>Python, Java</h3>
-      <p>3 Projects</p>
-    </div>
-
-    <div class="card">
-      <img src="images/bcil.png" alt="BCIL" class="logo" />
-      <h3>Process Engineer</h3>
-      <p>Bashundhara Chemical Industries Ltd.</p>
-    </div>
-  </section>
+  </main>
 
   <script src="script.js"></script>
-  <script>
-    fetch('navbar.html')
-      .then(r => r.text())
-      .then(d => document.getElementById('navbar').innerHTML = d);
-  </script>
 </body>
 </html>
