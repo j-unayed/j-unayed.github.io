@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md. Junayed | Home</title>
   <link rel="stylesheet" href="style.css">
   <!-- Favicon -->
@@ -13,6 +11,191 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* ==== GRADIENT HERO ==== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+    .hero .headshot {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      margin:  1.5rem auto;
+      display: block;
+      object-fit: cover;
+    }
+    .hero .contact-links {
+      margin: 1.5rem 0;
+      font-size: 1.1rem;
+    }
+    .hero .contact-links a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .hero .social-links a {
+      margin: 0 12px;
+      font-size: 1.6rem;
+      color: #fff;
+      transition: transform .2s;
+      text-decoration: none;
+    }
+    .hero .social-links a:hover { transform: scale(1.2); }
+
+    /* ==== SLIDESHOW FRAME BELOW SOCIAL ==== */
+    .slideshow-frame {
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 700px;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+      background: #000;
+    }
+    .slideshow-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .slideshow-frame img.active {
+      opacity: 1;
+    }
+
+    /* ==== STACK CARDS (75% size) ==== */
+    .stack-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      padding: 3rem 2rem;
+      background: #fafafa;
+    }
+    .card {
+      background: #fff;
+      width: 195px;           /* 260px × 0.75 */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .3s, box-shadow .3s;
+      text-align: center;
+    }
+    .card:hover {
+      transform: translateY(-9px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.15);
+    }
+    .card img.logo {
+      width: 52.5px;         /* 70px × 0.75 */
+      height: 52.5px;
+      margin: 1rem auto;
+      object-fit: contain;
+    }
+    .card h3 { 
+      margin: 0.4rem 0; 
+      font-size: 0.825rem;  /* 1.1rem × 0.75 */
+    }
+    .card p { 
+      margin: 0.3rem 0; 
+      color: #555; 
+      font-size: 0.7125rem; /* 0.95rem × 0.75 */
+    }
+    .card a { 
+      color: #0066cc; 
+      text-decoration: none; 
+      font-size: 0.7125rem;
+    }
+    .card a:hover { text-decoration: underline; }
+
+    /* ==== LEFT SIDE MENU ==== */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 280px;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 80px 20px 20px;
+      transition: left 0.4s ease;
+      z-index: 999;
+      box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+    }
+    .side-menu.open { left: 0; }
+    .side-menu h3 {
+      margin: 0 0 1.5rem;
+      font-size: 1.1rem;
+      color: #00bfff;
+    }
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .side-menu ul li {
+      margin: 1rem 0;
+    }
+    .side-menu ul li a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 1rem;
+      display: block;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .side-menu ul li a:hover {
+      color: #00bfff;
+    }
+    .side-menu .contact {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+    .side-menu .contact a {
+      color: #25d366;
+    }
+    .side-menu .copyright {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .hero { height: 90vh; }
+      .hero .headshot { width: 140px; height: 140px; }
+      .slideshow-frame { height: 250px; }
+      .card { width: 160px; }
+      .card img.logo { width: 45px; height: 45px; }
+      .side-menu { width: 100%; left: -100%; }
+      .side-menu.open { left: 0; }
     /* ---- HERO ---- */
     .hero{
       position:relative;height:100vh;overflow:hidden;
@@ -102,13 +285,10 @@
       .slideshow-container{max-width:90%;}
     }
   </style>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="images/favicon.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
+  <!-- Navigation -->
   <!-- Sidebar -->
   <div id="overlay" onclick="toggleSidebar()"></div>
   <div id="sidebar">
@@ -129,81 +309,79 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
+  <!-- ==== HERO SECTION (Gradient) ==== -->
   <!-- Hero -->
-  <!-- ==== HERO SECTION ==== -->
   <section class="hero">
     <div class="hero-content">
       <h1>Hello! I am Md. Junayed</h1>
       <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot">
-      <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot" />
+
       <div class="contact-links">
         <i class="fas fa-envelope"></i>
         <a href="mailto:1902049@che.buet.ac.bd">1902049@che.buet.ac.bd</a>
       </div>
 
       <div class="social-links">
+        <a href="https://linkedin.com/in/junayed733" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/j-unayed" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://fb.com/junayed733" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://linkedin.com/in/junayed733" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/j-unayed" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://fb.com/junayed733" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
       </div>
-    </div>
 
+      <!-- Slideshow Frame -->
+      <div class="slideshow-frame" id="slideshowFrame"></div>
       <!-- Slideshow -->
       <div class="slideshow-container" id="slideshowContainer">
         <a class="prev" onclick="plusSlides(-1)">Left Arrow</a>
         <a class="next" onclick="plusSlides(1)">Right Arrow</a>
       </div>
-    <!-- Manual slideshow below profile -->
-    <div class="hero-slideshow">
-      <div class="slide active"><img src="images_homepage/IMG_20250721_153556.jpg" alt="Slide 1" /></div>
-      <div class="slide"><img src="images_homepage/IMG_20250721_154213.jpg" alt="Slide 2" /></div>
-      <div class="slide"><img src="images_homepage/IMG_20250822_123740.jpg" alt="Slide 3" /></div>
-      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)">&#10095;</a>
     </div>
   </section>
 
+  <!-- ==== STACK CARDS (75% size) ==== -->
   <!-- Stack Cards -->
-  <!-- ==== STACK CARDS ==== -->
   <section class="stack-cards">
     <div class="card">
       <img src="images/buet.png" alt="BUET logo" class="logo">
-      <img src="images/buet.png" alt="BUET" class="logo" />
       <h3>B.Sc in Chemical Engineering</h3>
       <p>2025</p>
+      <p><a href="https://www.buet.ac.bd" target="_blank">Bangladesh University of Engineering and Technology</a></p>
       <p><a href="https://www.buet.ac.bd" target="_blank">Bangladesh University of Engineering...</a></p>
-      <p><a href="https://www.buet.ac.bd" target="_blank">BUET</a></p>
     </div>
-
     <div class="card">
       <img src="images/research.png" alt="Research logo" class="logo">
-      <img src="images/research.png" alt="Research" class="logo" />
-      <h3>Experienced Researcher</h3>
-      <p>Biomaterials, Catalysis</p>
-      <p>1 Q1 Paper, 1 Project</p>
-    </div>
-
-    <div class="card">
-      <img src="images/coding.png" alt="Coding logo" class="logo">
-      <img src="images/coding.png" alt="Coding" class="logo" />
-      <h3>Python, Java</h3>
-      <p>3 Projects</p>
-    </div>
-
-    <div class="card">
-      <img src="images/bcil.png" alt="BCIL logo" class="logo">
-      <img src="images/bcil.png" alt="BCIL" class="logo" />
-      <h3>Process Engineer</h3>
-      <p>Bashundhara Chemical Industries Limited</p>
-      <p><a href="https://www.bashundharagroup.com" target="_blank">bashundharagroup.com</a></p>
-      <p>Bashundhara Chemical Industries Ltd.</p>
+@@ -253,87 +173,59 @@
     </div>
   </section>
 
+  <!-- ==== SIDE MENU ==== -->
+  <div class="side-menu" id="sideMenu">
+    <h3>Quick GD Links</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/1ZOzidJSAitUExNqI4dUI3jVCIBhWyXoo/view?usp=sharing" target="_blank">Academic CV</a></li>
+      <li><a href="https://drive.google.com/file/d/170eYWhg11XNwQIA3TA_F1hUEtZl9J3cW/view?usp=sharing" target="_blank">UG Thesis - HRP purification & Applications</a></li>
+      <li><a href="https://drive.google.com/file/d/1zfRyfrl7S5Yi6s3eoSS23C1CmCclI0On/view?usp=sharing" target="_blank">UG Process Design - Aniline Plant</a></li>
+      <li><a href="research.html">Research - Immobilized Bioreactors</a></li>
+      <li><a href="work.html">Industrial Experience - BCIL</a></li>
+    </ul>
+    <div class="contact">
+      Contact me <a href="https://wa.me/8801838723352" target="_blank">+8801838723352</a>
+    </div>
+    <div class="copyright">© 2025</div>
+  </div>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
   <script>
+    // Load navbar
     // Navbar + Sidebar toggle
     fetch('navbar.html')
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById('navbar').innerHTML = d;
+        setupNavbar();
       .then(r=>r.text())
       .then(d=>{
         document.getElementById('navbar').innerHTML=d;
@@ -217,6 +395,28 @@
         });
       });
 
+    // Setup navbar toggle for side menu
+    function setupNavbar() {
+      const navUl = document.querySelector('nav ul');
+      const logoLink = navUl.querySelector('li:first-child a');
+      const quickText = document.createElement('span');
+      quickText.textContent = ' Quick GD Links';
+      quickText.style.marginLeft = '8px';
+      quickText.style.fontWeight = '600';
+      quickText.style.cursor = 'pointer';
+      quickText.style.color = '#fff';
+      quickText.onclick = () => {
+        document.getElementById('sideMenu').classList.toggle('open');
+      };
+      logoLink.appendChild(quickText);
+
+      // Close menu on outside click
+      document.addEventListener('click', (e) => {
+        const menu = document.getElementById('sideMenu');
+        if (!menu.contains(e.target) && !quickText.contains(e.target)) {
+          menu.classList.remove('open');
+        }
+      });
     function toggleSidebar(){
       const s=document.getElementById('sidebar');
       const o=document.getElementById('overlay');
@@ -224,6 +424,19 @@
       o.style.display=s.classList.contains('active')?'block':'none';
     }
 
+    // ==== SLIDESHOW IN FRAME ====
+    const frame = document.getElementById('slideshowFrame');
+    const folder = 'images_homepage/';
+    const images = [
+      '1707629221052.jpg',
+      '1707935627250.jpg',
+      'IMG-20250614-WA0009.jpg',
+      'IMG-20250621-WA0000.jpg',
+      'IMG-20250723-WA0044.jpeg',
+      'IMG-20250825-WA0014.jpg',
+      'IMG_20241123_133147.jpg',
+      'IMG_20250721_153556.jpg',
+      'IMG_20250721_154213.jpg',
     // Slideshow
     const folder='images_homepage/';
     const files=[
@@ -232,6 +445,13 @@
       'IMG_20241123_133147.jpg','IMG_20250721_153556.jpg','IMG_20250721_154213.jpg',
       'IMG_20250822_123740.jpg'
     ];
+
+    let current = 0;
+    images.forEach((src, i) => {
+      const img = new Image();
+      img.src = folder + src;
+      img.className = i === 0 ? 'active' : '';
+      frame.appendChild(img);
     const cont=document.getElementById('slideshowContainer');
     files.forEach(f=>{
       const div=document.createElement('div');
@@ -243,6 +463,12 @@
     const slides=cont.getElementsByClassName('slide');
     show();
 
+    setInterval(() => {
+      const imgs = frame.querySelectorAll('img');
+      imgs[current].classList.remove('active');
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add('active');
+    }, 4000);
     function plusSlides(n){
       idx+=n;
       if(idx>=slides.length)idx=0;
@@ -253,8 +479,6 @@
       for(let i=0;i<slides.length;i++)slides[i].style.display='none';
       slides[idx].style.display='block';
     }
-      .then(r => r.text())
-      .then(d => document.getElementById('navbar').innerHTML = d);
   </script>
 </body>
 </html>
