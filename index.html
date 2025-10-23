@@ -8,33 +8,28 @@
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="images/favicon.png">
-  <!-- Font Awesome for icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* ---- NEW HERO SECTION ---- */
+    /* ==== GRADIENT HERO ==== */
     .hero {
       position: relative;
       height: 100vh;
-      overflow: hidden;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       color: #fff;
       text-align: center;
+      overflow: hidden;
     }
     .hero::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.45);
+      background: rgba(0, 0, 0, 0.3);
       z-index: 1;
-    }
-    .hero-bg {
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      object-fit: cover;
-      filter: blur(3px);
-      transition: opacity 0.6s ease;
     }
     .hero-content {
       position: relative;
@@ -47,7 +42,7 @@
       height: 180px;
       border-radius: 50%;
       border: 5px solid #fff;
-      margin: 1.5rem auto;
+      margin:  1.5rem auto;
       display: block;
       object-fit: cover;
     }
@@ -68,18 +63,43 @@
     }
     .hero .social-links a:hover { transform: scale(1.2); }
 
-    /* ---- STACK CARDS ---- */
+    /* ==== SLIDESHOW FRAME BELOW SOCIAL ==== */
+    .slideshow-frame {
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 700px;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+      background: #000;
+    }
+    .slideshow-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease;
+      position: absolute;
+      top: 0; left: 0;
+    }
+    .slideshow-frame img.active {
+      opacity: 1;
+    }
+
+    /* ==== STACK CARDS (75% size) ==== */
     .stack-cards {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 1.5rem;
       justify-content: center;
-      padding: 4rem 2rem;
+      padding: 3rem 2rem;
       background: #fafafa;
     }
     .card {
       background: #fff;
-      width: 260px;
+      width: 195px;           /* 260px × 0.75 */
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,.08);
@@ -87,33 +107,105 @@
       text-align: center;
     }
     .card:hover {
-      transform: translateY(-12px);
+      transform: translateY(-9px);
       box-shadow: 0 12px 24px rgba(0,0,0,.15);
     }
     .card img.logo {
-      width: 70px;
-      height: 70px;
-      margin: 1.2rem auto;
+      width: 52.5px;         /* 70px × 0.75 */
+      height: 52.5px;
+      margin: 1rem auto;
       object-fit: contain;
     }
-    .card h3 { margin: 0.5rem 0; font-size: 1.1rem; }
-    .card p { margin: 0.4rem 0; color: #555; font-size: .95rem; }
-    .card a { color: #0066cc; text-decoration: none; }
+    .card h3 { 
+      margin: 0.4rem 0; 
+      font-size: 0.825rem;  /* 1.1rem × 0.75 */
+    }
+    .card p { 
+      margin: 0.3rem 0; 
+      color: #555; 
+      font-size: 0.7125rem; /* 0.95rem × 0.75 */
+    }
+    .card a { 
+      color: #0066cc; 
+      text-decoration: none; 
+      font-size: 0.7125rem;
+    }
     .card a:hover { text-decoration: underline; }
 
+    /* ==== LEFT SIDE MENU ==== */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -300px;
+      width: 280px;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 80px 20px 20px;
+      transition: left 0.4s ease;
+      z-index: 999;
+      box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+    }
+    .side-menu.open { left: 0; }
+    .side-menu h3 {
+      margin: 0 0 1.5rem;
+      font-size: 1.1rem;
+      color: #00bfff;
+    }
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .side-menu ul li {
+      margin: 1rem 0;
+    }
+    .side-menu ul li a {
+      color: #ddd;
+      text-decoration: none;
+      font-size: 1rem;
+      display: block;
+      padding: 8px 0;
+      transition: color 0.2s;
+    }
+    .side-menu ul li a:hover {
+      color: #00bfff;
+    }
+    .side-menu .contact {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+    .side-menu .contact a {
+      color: #25d366;
+    }
+    .side-menu .copyright {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    /* Mobile Adjustments */
     @media (max-width: 768px) {
-      .hero { height: 80vh; }
+      .hero { height: 90vh; }
       .hero .headshot { width: 140px; height: 140px; }
+      .slideshow-frame { height: 250px; }
+      .card { width: 160px; }
+      .card img.logo { width: 45px; height: 45px; }
+      .side-menu { width: 100%; left: -100%; }
+      .side-menu.open { left: 0; }
     }
   </style>
 </head>
 <body>
+
   <!-- Navigation -->
   <div id="navbar"></div>
 
-  <!-- ==== HERO SECTION ==== -->
+  <!-- ==== HERO SECTION (Gradient) ==== -->
   <section class="hero">
-    <img src="images/slide1.jpg" alt="" class="hero-bg" id="heroBg">
     <div class="hero-content">
       <h1>Hello! I am Md. Junayed</h1>
       <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot">
@@ -124,45 +216,35 @@
       </div>
 
       <div class="social-links">
-        <a href="https://linkedin.com/in/junayed733" target="_blank" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/j-unayed" target="_blank" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://fb.com/junayed733" target="_blank" title="Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
+        <a href="https://linkedin.com/in/junayed733" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/j-unayed" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://fb.com/junayed733" target="_blank"><i class="fab fa-facebook"></i></a>
       </div>
+
+      <!-- Slideshow Frame -->
+      <div class="slideshow-frame" id="slideshowFrame"></div>
     </div>
   </section>
 
-  <!-- ==== STACK CARDS ==== -->
+  <!-- ==== STACK CARDS (75% size) ==== -->
   <section class="stack-cards">
-    <!-- BUET -->
     <div class="card">
       <img src="images/buet.png" alt="BUET logo" class="logo">
       <h3>B.Sc in Chemical Engineering</h3>
       <p>2025</p>
       <p><a href="https://www.buet.ac.bd" target="_blank">Bangladesh University of Engineering and Technology</a></p>
     </div>
-
-    <!-- Research -->
     <div class="card">
       <img src="images/research.png" alt="Research logo" class="logo">
       <h3>Experienced Researcher</h3>
       <p>Biomaterials, Catalysis</p>
       <p>1 Q1 Paper, 1 Project</p>
     </div>
-
-    <!-- Coding -->
     <div class="card">
       <img src="images/coding.png" alt="Coding logo" class="logo">
       <h3>Python, Java</h3>
       <p>3 Projects</p>
     </div>
-
-    <!-- BCIL -->
     <div class="card">
       <img src="images/bcil.png" alt="BCIL logo" class="logo">
       <h3>Process Engineer</h3>
@@ -171,170 +253,87 @@
     </div>
   </section>
 
-  <!-- Slideshow script (kept for hero background) -->
-<script src="script.js"></script>
-<script>
-  // ---- NAVBAR -------------------------------------------------
-  fetch('navbar.html')
-    .then(r => r.text())
-    .then(d => document.getElementById('navbar').innerHTML = d);
+  <!-- ==== SIDE MENU ==== -->
+  <div class="side-menu" id="sideMenu">
+    <h3>Quick GD Links</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/1ZOzidJSAitUExNqI4dUI3jVCIBhWyXoo/view?usp=sharing" target="_blank">Academic CV</a></li>
+      <li><a href="https://drive.google.com/file/d/170eYWhg11XNwQIA3TA_F1hUEtZl9J3cW/view?usp=sharing" target="_blank">UG Thesis - HRP purification & Applications</a></li>
+      <li><a href="https://drive.google.com/file/d/1zfRyfrl7S5Yi6s3eoSS23C1CmCclI0On/view?usp=sharing" target="_blank">UG Process Design - Aniline Plant</a></li>
+      <li><a href="research.html">Research - Immobilized Bioreactors</a></li>
+      <li><a href="work.html">Industrial Experience - BCIL</a></li>
+    </ul>
+    <div class="contact">
+      Contact me <a href="https://wa.me/8801838723352" target="_blank">+8801838723352</a>
+    </div>
+    <div class="copyright">© 2025</div>
+  </div>
 
-  // ---- DYNAMIC HERO BACKGROUND -------------------------------
-  const heroBg   = document.getElementById('heroBg');
-  const folder   = 'images_homepage/';
-  const filenames = [                     // <-- keep the order you want
-    '1707629221052.jpg',
-    '1707935627250.jpg',
-    'IMG-20250614-WA0009.jpg',
-    'IMG-20250621-WA0000.jpg',
-    'IMG-20250723-WA0044.jpeg',
-    'IMG-20250825-WA0014.jpg',
-    'IMG_20241123_133147.jpg',
-    'IMG_20250721_153556.jpg',
-    'IMG_20250721_154213.jpg',
-    'IMG_20250822_123740.jpg'
-  ];
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Load navbar
+    fetch('navbar.html')
+      .then(r => r.text())
+      .then(d => {
+        document.getElementById('navbar').innerHTML = d;
+        setupNavbar();
+      });
 
-  // ----------------------------------------------------------------
-  // 1. Pre-load every image and store its orientation
-  // ----------------------------------------------------------------
-  const imageObjects = filenames.map(name => {
-    const img = new Image();
-    img.src = folder + name;
-    return {img, name, loaded: false, width:0, height:0};
-  });
-
-  let portrait = [];   // portrait images that still need a partner
-  let landscape = [];  // landscape images that still need a partner
-  let currentIdx = 0;  // index in the original array
-
-  // ----------------------------------------------------------------
-  // 2. Helper: decide if the viewport is “horizontal”
-  // ----------------------------------------------------------------
-  function isDesktop() {
-    return window.innerWidth > window.innerHeight;   // simple but works
-  }
-
-  // ----------------------------------------------------------------
-  // 3. Build a **single** background source (URL or data-URL)
-  // ----------------------------------------------------------------
-  function buildBackground() {
-    const next = imageObjects[currentIdx];
-    currentIdx = (currentIdx + 1) % imageObjects.length;
-
-    // wait until the image is actually loaded
-    if (!next.loaded) {
-      // show it as soon as it loads
-      next.img.onload = () => {
-        next.loaded = true;
-        next.width  = next.img.naturalWidth;
-        next.height = next.img.naturalHeight;
-        buildBackground();          // retry now that we know size
+    // Setup navbar toggle for side menu
+    function setupNavbar() {
+      const navUl = document.querySelector('nav ul');
+      const logoLink = navUl.querySelector('li:first-child a');
+      const quickText = document.createElement('span');
+      quickText.textContent = ' Quick GD Links';
+      quickText.style.marginLeft = '8px';
+      quickText.style.fontWeight = '600';
+      quickText.style.cursor = 'pointer';
+      quickText.style.color = '#fff';
+      quickText.onclick = () => {
+        document.getElementById('sideMenu').classList.toggle('open');
       };
-      heroBg.src = next.img.src;    // start loading
-      return;
+      logoLink.appendChild(quickText);
+
+      // Close menu on outside click
+      document.addEventListener('click', (e) => {
+        const menu = document.getElementById('sideMenu');
+        if (!menu.contains(e.target) && !quickText.contains(e.target)) {
+          menu.classList.remove('open');
+        }
+      });
     }
 
-    const isPortrait = next.width < next.height;
+    // ==== SLIDESHOW IN FRAME ====
+    const frame = document.getElementById('slideshowFrame');
+    const folder = 'images_homepage/';
+    const images = [
+      '1707629221052.jpg',
+      '1707935627250.jpg',
+      'IMG-20250614-WA0009.jpg',
+      'IMG-20250621-WA0000.jpg',
+      'IMG-20250723-WA0044.jpeg',
+      'IMG-20250825-WA0014.jpg',
+      'IMG_20241123_133147.jpg',
+      'IMG_20250721_153556.jpg',
+      'IMG_20250721_154213.jpg',
+      'IMG_20250822_123740.jpg'
+    ];
 
-    // --------------------------------------------------------------
-    // DESKTOP – pair two portraits side-by-side
-    // --------------------------------------------------------------
-    if (isDesktop() && isPortrait) {
-      // look for a partner that is also portrait
-      const partner = portrait.find(p => p !== next);
-      if (partner) {
-        // remove partner from the pool
-        portrait = portrait.filter(p => p !== partner);
-        createSideBySide(next, partner);
-        return;
-      }
-      // no partner yet → keep it for later
-      portrait.push(next);
-      heroBg.src = next.img.src;
-      return;
-    }
+    let current = 0;
+    images.forEach((src, i) => {
+      const img = new Image();
+      img.src = folder + src;
+      img.className = i === 0 ? 'active' : '';
+      frame.appendChild(img);
+    });
 
-    // --------------------------------------------------------------
-    // MOBILE – pair two landscapes one-above-the-other
-    // --------------------------------------------------------------
-    if (!isDesktop() && !isPortrait) {
-      const partner = landscape.find(p => p !== next);
-      if (partner) {
-        landscape = landscape.filter(p => p !== partner);
-        createStacked(next, partner);
-        return;
-      }
-      landscape.push(next);
-      heroBg.src = next.img.src;
-      return;
-    }
-
-    // --------------------------------------------------------------
-    // Default – just show the single image
-    // --------------------------------------------------------------
-    heroBg.src = next.img.src;
-  }
-
-  // ----------------------------------------------------------------
-  // 4. Canvas helpers – combine two images
-  // ----------------------------------------------------------------
-  function createSideBySide(imgA, imgB) {
-    const canvas = document.createElement('canvas');
-    const w = Math.max(imgA.width, imgB.width);
-    const h = Math.max(imgA.height, imgB.height);
-    canvas.width  = w * 2;
-    canvas.height = h;
-    const ctx = canvas.getContext('2d');
-
-    // draw left
-    ctx.drawImage(imgA.img, 0, 0, w, h);
-    // draw right
-    ctx.drawImage(imgB.img, w, 0, w, h);
-
-    heroBg.src = canvas.toDataURL();
-  }
-
-  function createStacked(imgA, imgB) {
-    const canvas = document.createElement('canvas');
-    const w = Math.max(imgA.width, imgB.width);
-    const h = Math.max(imgA.height, imgB.height);
-    canvas.width  = w;
-    canvas.height = h * 2;
-    const ctx = canvas.getContext('2d');
-
-    ctx.drawImage(imgA.img, 0, 0, w, h);
-    ctx.drawImage(imgB.img, 0, h, w, h);
-
-    heroBg.src = canvas.toDataURL();
-  }
-
-  // ----------------------------------------------------------------
-  // 5. Fade transition
-  // ----------------------------------------------------------------
-  function changeWithFade() {
-    heroBg.style.opacity = '0';
-    setTimeout(() => {
-      buildBackground();
-      heroBg.style.opacity = '1';
-    }, 600);
-  }
-
-  // ----------------------------------------------------------------
-  // 6. Start everything
-  // ----------------------------------------------------------------
-  window.addEventListener('load', () => {
-    // preload the first image to kick things off
-    buildBackground();
-    setInterval(changeWithFade, 5000);   // 5 s interval (feel free to change)
-  });
-
-  // Re-evaluate on resize (desktop ↔ mobile switch)
-  window.addEventListener('resize', () => {
-    // reset pools when orientation changes
-    portrait = imageObjects.filter(o => o.loaded && o.width < o.height);
-    landscape = imageObjects.filter(o => o.loaded && o.width >= o.height);
-  });
-</script>
+    setInterval(() => {
+      const imgs = frame.querySelectorAll('img');
+      imgs[current].classList.remove('active');
+      current = (current + 1) % imgs.length;
+      imgs[current].classList.add('active');
+    }, 4000);
+  </script>
 </body>
 </html>
