@@ -39,6 +39,8 @@ function changeSlide(n) {
 
 // Quick GD Links toggle
 function toggleQuickLinks() {
-  document.getElementById("quickLinksDrawer").classList.toggle("open");
+  const drawer = document.getElementById('quickLinksDrawer');
+  const nav = document.getElementById('navWrapper');
+  drawer.classList.toggle('open');
+  nav.classList.toggle('shifted');
 }
-
