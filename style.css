@@ -253,14 +253,13 @@ nav a:hover {
 .card a { color: #0077ff; text-decoration: none; }
 .card a:hover { text-decoration: underline; }
 
-/* Quick GD Links Drawer */
 #quickLinksDrawer {
   position: fixed;
   top: 0;
-  left: -300px;
+  left: -300px;        /* fully hidden */
   width: 260px;
   height: 100%;
-  background: rgba(15,15,15,0.85);
+  background: rgba(15, 15, 15, 0.95);
   backdrop-filter: blur(8px);
   color: #fff;
   transition: left 0.3s ease;
@@ -268,11 +267,23 @@ nav a:hover {
   padding: 20px;
   overflow-y: auto;
 }
-#quickLinksDrawer.open { left: 0; }
+
+/* When opened */
+#quickLinksDrawer.open {
+  left: 0;
+}
 #quickLinksDrawer h3 { margin-top: 0; text-align: center; }
 #quickLinksDrawer ul { list-style: none; padding: 0; }
 #quickLinksDrawer li { margin: 12px 0; }
 #quickLinksDrawer a { color: #0af; text-decoration: none; }
 #quickLinksDrawer a:hover { text-decoration: underline; }
 .drawer-footer { position: relative; margin-top: 20px; text-align: center; font-size: 0.9rem; color: #ccc; }
-.quick-links-btn { cursor: pointer; padding: 14px 20px; color: #0af; }
+/* Ensure ☰ stays on top of drawer */
+.quick-links-btn {
+  cursor: pointer;
+  padding: 10px 16px;
+  color: #0af;
+  font-size: 1.4rem;
+  z-index: 10000;
+  position: relative;
+}
