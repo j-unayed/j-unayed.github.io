@@ -1,76 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Md. Junayed | Home</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="images/favicon.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md. Junayed | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ---- HERO ---- */
+    .hero{
+      position:relative;height:100vh;overflow:hidden;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;text-align:center;
+      background:linear-gradient(to bottom,#16222A,#3A6073);
+    }
+    .hero-content{
+      position:relative;z-index:2;max-width:900px;padding:2rem;
+    }
+    .hero .headshot{
+      width:180px;height:180px;border-radius:50%;border:5px solid #fff;
+      margin:1.5rem auto;display:block;object-fit:cover;
+    }
+    .hero .contact-links{margin:1.5rem 0;font-size:1.1rem;}
+    .hero .contact-links a{color:#fff;text-decoration:none;}
+    .hero .social-links a{
+      margin:0 12px;font-size:1.6rem;color:#fff;
+      transition:transform .2s;text-decoration:none;
+    }
+    .hero .social-links a:hover{transform:scale(1.2);}
+
+    /* ---- SLIDESHOW ---- */
+    .slideshow-container{
+      position:relative;max-width:600px;margin:2rem auto 0;
+      border-radius:12px;overflow:hidden;
+      box-shadow:0 8px 16px rgba(0,0,0,.3);background:#fff;
+    }
+    .slide{display:none;width:100%;}
+    .slide img{width:100%;height:auto;object-fit:cover;}
+    .prev,.next{
+      position:absolute;top:50%;transform:translateY(-50%);
+      font-size:24px;color:#fff;background:rgba(0,0,0,.5);
+      padding:12px;cursor:pointer;border-radius:50%;
+      transition:background .3s;
+    }
+    .prev{left:10px;}.next{right:10px;}
+    .prev:hover,.next:hover{background:rgba(0,0,0,.8);}
+
+    /* ---- STACK CARDS ---- */
+    .stack-cards{
+      display:flex;flex-wrap:wrap;gap:1.5rem;
+      justify-content:center;padding:4rem 2rem;background:#fafafa;
+    }
+    .card{
+      background:#fff;width:195px;border-radius:12px;overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,.08);
+      transition:transform .3s,box-shadow .3s;text-align:center;
+    }
+    .card:hover{
+      transform:translateY(-12px);box-shadow:0 12px 24px rgba(0,0,0,.15);
+    }
+    .card img.logo{
+      width:52px;height:52px;margin:.9rem auto;object-fit:contain;
+    }
+    .card h3{margin:.375rem 0;font-size:.825rem;}
+    .card p{margin:.3rem 0;color:#555;font-size:.7125rem;}
+    .card a{color:#0066cc;text-decoration:none;}
+    .card a:hover{text-decoration:underline;}
+
+    /* ---- SIDEBAR ---- */
+    #overlay{
+      position:fixed;top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,.6);backdrop-filter:blur(5px);
+      display:none;z-index:9;
+    }
+    #sidebar{
+      position:fixed;top:0;left:-300px;width:300px;height:100%;
+      background:#1c2b35;color:#fff;padding:2rem;
+      transition:left .3s ease;z-index:10;
+      box-shadow:2px 0 10px rgba(0,0,0,.2);
+    }
+    #sidebar.active{left:0;}
+    #sidebar h2{margin-bottom:1.5rem;font-size:1.2rem;text-align:center;}
+    #sidebar ul{list-style:none;padding:0;}
+    #sidebar li{margin:1rem 0;}
+    #sidebar a{color:#fff;text-decoration:none;font-size:1rem;transition:color .2s;}
+    #sidebar a:hover{color:#a8d4ff;}
+    .sidebar-footer{
+      position:absolute;bottom:2rem;width:calc(100%-4rem);
+      text-align:center;font-size:.9rem;
+    }
+
+    @media (max-width:768px){
+      .hero{height:auto;padding-bottom:2rem;}
+      .hero .headshot{width:140px;height:140px;}
+      .slideshow-container{max-width:90%;}
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
 
-<!-- Navbar -->
-<div id="navbar"></div>
-
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Hello! I am Md. Junayed</h1>
-    <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot">
-    <div class="contact-links">
-      <i class="fas fa-envelope"></i>
-      <a href="mailto:1902049@che.buet.ac.bd">1902049@che.buet.ac.bd</a>
-    </div>
-    <div class="social-links">
-      <a href="https://linkedin.com/in/junayed733" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/j-unayed" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://fb.com/junayed733" target="_blank"><i class="fab fa-facebook"></i></a>
+  <!-- Sidebar -->
+  <div id="overlay" onclick="toggleSidebar()"></div>
+  <div id="sidebar">
+    <h2>Quick GD Links</h2>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/1ZOzidJSAitUExNqI4dUI3jVCIBhWyXoo/view?usp=sharing" target="_blank">Academic CV</a></li>
+      <li><a href="https://drive.google.com/file/d/170eYWhg11XNwQIA3TA_F1hUEtZl9J3cW/view?usp=sharing" target="_blank">UG Thesis - HRP purification & Applications</a></li>
+      <li><a href="https://drive.google.com/file/d/1zfRyfrl7S5Yi6s3eoSS23C1CmCclI0On/view?usp=sharing" target="_blank">UG Process Design - Aniline Plant</a></li>
+      <li><a href="research.html">Research - Immobilized Bioreactors</a></tli>
+      <li><a href="work.html">Industrial Experience - BCIL</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <p><a href="https://wa.me/8801838723352" target="_blank">Contact me +8801838723352</a></p>
+      <p>© 2025</p>
     </div>
   </div>
 
-  <div class="hero-slideshow" id="heroSlideshow">
-    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-    <a class="next" onclick="changeSlide(1)">&#10095;</a>
-  </div>
-</section>
+  <!-- Navbar -->
+  <div id="navbar"></div>
 
-<!-- Stack Cards -->
-<section class="stack-cards">
-  <div class="card">
-    <img src="images/buet.png" alt="BUET logo" class="logo">
-    <h3>B.Sc in Chemical Engineering</h3>
-    <p>2025</p>
-    <p><a href="https://www.buet.ac.bd" target="_blank">Bangladesh University of Engineering and Technology</a></p>
-  </div>
+  <!-- Hero -->
+  <!-- ==== HERO SECTION ==== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hello! I am Md. Junayed</h1>
+      <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot">
+      <img src="images/headshot.jpg" alt="Md. Junayed" class="headshot" />
+      <div class="contact-links">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:1902049@che.buet.ac.bd">1902049@che.buet.ac.bd</a>
+      </div>
 
-  <div class="card">
-    <img src="images/research.png" alt="Research logo" class="logo">
-    <h3>Experienced Researcher</h3>
-    <p>Biomaterials, Catalysis</p>
-    <p>1 Q1 Paper, 1 Project</p>
-  </div>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/junayed733" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/j-unayed" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://fb.com/junayed733" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
 
-  <div class="card">
-    <img src="images/coding.png" alt="Coding logo" class="logo">
-    <h3>Python, Java</h3>
-    <p>3 Projects</p>
-  </div>
+      <!-- Slideshow -->
+      <div class="slideshow-container" id="slideshowContainer">
+        <a class="prev" onclick="plusSlides(-1)">Left Arrow</a>
+        <a class="next" onclick="plusSlides(1)">Right Arrow</a>
+      </div>
+    <!-- Manual slideshow below profile -->
+    <div class="hero-slideshow">
+      <div class="slide active"><img src="images_homepage/IMG_20250721_153556.jpg" alt="Slide 1" /></div>
+      <div class="slide"><img src="images_homepage/IMG_20250721_154213.jpg" alt="Slide 2" /></div>
+      <div class="slide"><img src="images_homepage/IMG_20250822_123740.jpg" alt="Slide 3" /></div>
+      <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+      <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+  </section>
 
-  <div class="card">
-    <img src="images/bcil.png" alt="BCIL logo" class="logo">
-    <h3>Process Engineer</h3>
-    <p>Bashundhara Chemical Industries Limited</p>
-    <p><a href="https://www.bashundharagroup.com" target="_blank">bashundharagroup.com</a></p>
-  </div>
-</section>
+  <!-- Stack Cards -->
+  <!-- ==== STACK CARDS ==== -->
+  <section class="stack-cards">
+    <div class="card">
+      <img src="images/buet.png" alt="BUET logo" class="logo">
+      <img src="images/buet.png" alt="BUET" class="logo" />
+      <h3>B.Sc in Chemical Engineering</h3>
+      <p>2025</p>
+      <p><a href="https://www.buet.ac.bd" target="_blank">Bangladesh University of Engineering...</a></p>
+      <p><a href="https://www.buet.ac.bd" target="_blank">BUET</a></p>
+    </div>
 
-<script src="script.js"></script>
-<script>
-fetch('navbar.html')
-  .then(r => r.text())
-  .then(d => { document.getElementById('navbar').innerHTML = d; });
-</script>
+    <div class="card">
+      <img src="images/research.png" alt="Research logo" class="logo">
+      <img src="images/research.png" alt="Research" class="logo" />
+      <h3>Experienced Researcher</h3>
+      <p>Biomaterials, Catalysis</p>
+      <p>1 Q1 Paper, 1 Project</p>
+    </div>
+
+    <div class="card">
+      <img src="images/coding.png" alt="Coding logo" class="logo">
+      <img src="images/coding.png" alt="Coding" class="logo" />
+      <h3>Python, Java</h3>
+      <p>3 Projects</p>
+    </div>
+
+    <div class="card">
+      <img src="images/bcil.png" alt="BCIL logo" class="logo">
+      <img src="images/bcil.png" alt="BCIL" class="logo" />
+      <h3>Process Engineer</h3>
+      <p>Bashundhara Chemical Industries Limited</p>
+      <p><a href="https://www.bashundharagroup.com" target="_blank">bashundharagroup.com</a></p>
+      <p>Bashundhara Chemical Industries Ltd.</p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    // Navbar + Sidebar toggle
+    fetch('navbar.html')
+      .then(r=>r.text())
+      .then(d=>{
+        document.getElementById('navbar').innerHTML=d;
+        const ul=document.querySelector('nav ul');
+        const homeLi=ul.querySelector('li:first-child');
+        const li=document.createElement('li');
+        li.innerHTML='<a href="#" id="toggleSidebar">Quick GD Links</a>';
+        homeLi.after(li);
+        document.getElementById('toggleSidebar').addEventListener('click',e=>{
+          e.preventDefault();toggleSidebar();
+        });
+      });
+
+    function toggleSidebar(){
+      const s=document.getElementById('sidebar');
+      const o=document.getElementById('overlay');
+      s.classList.toggle('active');
+      o.style.display=s.classList.contains('active')?'block':'none';
+    }
+
+    // Slideshow
+    const folder='images_homepage/';
+    const files=[
+      '1707629221052.jpg','1707935627250.jpg','IMG-20250614-WA0009.jpg',
+      'IMG-20250621-WA0000.jpg','IMG-20250723-WA0044.jpeg','IMG-20250825-WA0014.jpg',
+      'IMG_20241123_133147.jpg','IMG_20250721_153556.jpg','IMG_20250721_154213.jpg',
+      'IMG_20250822_123740.jpg'
+    ];
+    const cont=document.getElementById('slideshowContainer');
+    files.forEach(f=>{
+      const div=document.createElement('div');
+      div.className='slide fade';
+      div.innerHTML=`<img src="${folder+f}" alt="Portfolio image">`;
+      cont.insertBefore(div,cont.querySelector('.prev'));
+    });
+    let idx=0;
+    const slides=cont.getElementsByClassName('slide');
+    show();
+
+    function plusSlides(n){
+      idx+=n;
+      if(idx>=slides.length)idx=0;
+      if(idx<0)idx=slides.length-1;
+      show();
+    }
+    function show(){
+      for(let i=0;i<slides.length;i++)slides[i].style.display='none';
+      slides[idx].style.display='block';
+    }
+      .then(r => r.text())
+      .then(d => document.getElementById('navbar').innerHTML = d);
+  </script>
 </body>
 </html>
