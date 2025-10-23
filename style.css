@@ -275,5 +275,12 @@ nav a:hover {
 #quickLinksDrawer a { color: #0af; text-decoration: none; }
 #quickLinksDrawer a:hover { text-decoration: underline; }
 .drawer-footer { position: relative; margin-top: 20px; text-align: center; font-size: 0.9rem; color: #ccc; }
-.quick-links-btn { cursor: pointer; padding: 14px 20px; color: #0af; }
+.quick-links-btn {
+  cursor: pointer;
+  padding: 10px 16px;
+  color: #0af;
+  font-size: 1.4rem;
+  z-index: 10000;
+  position: relative;
+}
 
